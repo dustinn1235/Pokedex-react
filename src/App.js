@@ -6,7 +6,9 @@ import { useState, useEffect } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
   const [pokeList, setPokeList] = useState([]);
-  const [curURL, setCurURL] = useState("https://pokeapi.co/api/v2/pokemon");
+  const [curURL, setCurURL] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=10"
+  );
   const [nextURL, setNextURL] = useState("");
   const [prevURL, setPrevURL] = useState("");
   const [curPoke, setCurPoke] = useState({});

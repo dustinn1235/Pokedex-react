@@ -2,8 +2,12 @@ import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 
 const PokeInfo = ({ pokemon: { id, name, stats, sprites, types } }) => {
+  const imgSrc = sprites?.other?.["official-artwork"]?.front_default
+    ? sprites?.other?.["official-artwork"]?.front_default
+    : "https://i.imgur.com/6sYxOAI.jpg";
+
   const zeroFill = (num) => {
-    return ("000" + num).slice(-3);
+    return num < 1000 ? ("000" + num).slice(-3) : num;
   };
   zeroFill(id);
 
@@ -12,7 +16,7 @@ const PokeInfo = ({ pokemon: { id, name, stats, sprites, types } }) => {
       <h1>
         {name[0].toUpperCase() + name.slice(1)} <span>#{zeroFill(id)}</span>
       </h1>
-      <img src={sprites?.other?.["official-artwork"]?.front_default}></img>
+      <img src={imgSrc}></img>
       <div className="type-container">
         {types.map((e) => (
           <span key={e.type.name} className={"type " + e.type.name}>
@@ -20,13 +24,25 @@ const PokeInfo = ({ pokemon: { id, name, stats, sprites, types } }) => {
           </span>
         ))}
       </div>
-      <div>
-        <p>HP: {stats[0].base_stat}</p>
-        <p>Attack: {stats[1].base_stat}</p>
-        <p>Defense: {stats[2].base_stat}</p>
-        <p>Special Attack: {stats[3].base_stat}</p>
-        <p>Special Defense: {stats[4].base_stat}</p>
-        <p>Speed: {stats[5].base_stat}</p>
+      <div className="stat-container">
+        <span>
+          <p className="stat-name">HP:</p> {stats[0].base_stat}
+        </span>
+        <span>
+          <p className="stat-name">Attack:</p> {stats[1].base_stat}
+        </span>
+        <span>
+          <p className="stat-name">Defense:</p> {stats[2].base_stat}
+        </span>
+        <span>
+          <p className="stat-name">Special Attack:</p> {stats[3].base_stat}
+        </span>
+        <span>
+          <p className="stat-name">Special Defense:</p> {stats[4].base_stat}
+        </span>
+        <span>
+          <p className="stat-name">Speed:</p> {stats[5].base_stat}
+        </span>
       </div>
     </div>
   );
