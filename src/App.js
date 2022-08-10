@@ -52,8 +52,10 @@ function App() {
     <div className="container">
       <div>
         <PokeList pokeList={pokeList} onShow={showInfo}></PokeList>
-        {prevURL && <button onClick={onPrev}>Prev</button>}
-        {nextURL && <button onClick={onNext}>Next</button>}
+        <div className="btns-container">
+          {prevURL && <button onClick={onPrev}>Prev</button>}
+          {nextURL && <button onClick={onNext}>Next</button>}
+        </div>
       </div>
       <PokeInfo pokemon={curPoke}></PokeInfo>
     </div>
