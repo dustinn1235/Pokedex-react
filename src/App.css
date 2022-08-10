@@ -3,6 +3,20 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  /* border: 2px solid; */
+  justify-content: center;
+  margin-bottom: 1rem;
+  background-color: rgb(198, 42, 42);
+}
+.header img {
+  height: 4rem;
+  width: auto;
 }
 
 .container {
@@ -77,6 +91,7 @@
   border: 2px solid;
   flex: 1;
   align-items: center;
+  margin-right: 0.8rem;
 }
 
 .info-container h1 span {

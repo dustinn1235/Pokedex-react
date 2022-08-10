@@ -1,5 +1,6 @@
 import PokeList from "./components/PokeList";
 import PokeInfo from "./components/PokeInfo";
+import Header from "./components/Header";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -49,16 +50,19 @@ function App() {
 
   if (loading) return "Loading...";
   return (
-    <div className="container">
-      <div>
-        <PokeList pokeList={pokeList} onShow={showInfo}></PokeList>
-        <div className="btns-container">
-          {prevURL && <button onClick={onPrev}>Prev</button>}
-          {nextURL && <button onClick={onNext}>Next</button>}
+    <>
+      <Header></Header>
+      <div className="container">
+        <div>
+          <PokeList pokeList={pokeList} onShow={showInfo}></PokeList>
+          <div className="btns-container">
+            {prevURL && <button onClick={onPrev}>Prev</button>}
+            {nextURL && <button onClick={onNext}>Next</button>}
+          </div>
         </div>
+        <PokeInfo pokemon={curPoke}></PokeInfo>
       </div>
-      <PokeInfo pokemon={curPoke}></PokeInfo>
-    </div>
+    </>
   );
 }
 
