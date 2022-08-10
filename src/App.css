@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+body {
+  background-color: whitesmoke;
+}
+
 .header {
   display: flex;
   /* border: 2px solid; */
@@ -101,6 +105,7 @@
 .info-container img {
   height: auto;
   width: 15rem;
+  margin-top: 1rem;
 }
 
 .type-container {
