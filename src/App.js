@@ -45,23 +45,31 @@ function App() {
 
   const showInfo = (id) => {
     setCurPoke(pokeList.find((p) => p.id === id));
-    // console.log(pokeList.find((p) => p.id === id).name);
   };
 
-  if (loading) return "Loading...";
   return (
     <>
       <Header></Header>
-      <div className="container">
-        <div>
-          <PokeList pokeList={pokeList} onShow={showInfo}></PokeList>
-          <div className="btns-container">
-            {prevURL && <button onClick={onPrev}>PREV</button>}
-            {nextURL && <button onClick={onNext}>NEXT</button>}
-          </div>
+      {loading ? (
+        <div className="pokeball">
+          <div className="inner-ball"></div>
         </div>
-        <PokeInfo pokemon={curPoke}></PokeInfo>
-      </div>
+      ) : (
+        <div className="container">
+          <div>
+            <PokeList
+              pokeList={pokeList}
+              onShow={showInfo}
+              loading={loading}
+            ></PokeList>
+            <div className="btns-container">
+              {prevURL && <button onClick={onPrev}>PREV</button>}
+              {nextURL && <button onClick={onNext}>NEXT</button>}
+            </div>
+          </div>
+          <PokeInfo pokemon={curPoke}></PokeInfo>
+        </div>
+      )}
     </>
   );
 }
