@@ -248,3 +248,46 @@ body {
     transform: rotate(1800deg);
   }
 }
+
+.smooth-image {
+  transition: opacity 1s;
+}
+.image-visible {
+  opacity: 1;
+}
+.image-hidden {
+  opacity: 0;
+}
+.loader {
+  padding-bottom: 30%;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .info-container {
+    margin: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .card-list {
+    width: 90vw;
+    min-width: 320px;
+  }
+}
+
+@media only screen and (max-width: 445px) {
+  .card {
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+}

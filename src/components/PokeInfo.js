@@ -1,4 +1,5 @@
 import React from "react";
+import RenderSmoothImage from "./RenderSmoothImage";
 
 const PokeInfo = ({ pokemon: { id, name, stats, sprites, types } }) => {
   const imgSrc = sprites?.other?.["official-artwork"]?.front_default
@@ -15,7 +16,9 @@ const PokeInfo = ({ pokemon: { id, name, stats, sprites, types } }) => {
       <h1>
         {name[0].toUpperCase() + name.slice(1)} <span>#{zeroFill(id)}</span>
       </h1>
-      <img src={imgSrc}></img>
+      <div className="img-container">
+        <RenderSmoothImage src={imgSrc} alt="test" />
+      </div>
       <div className="type-container">
         {types.map((e) => (
           <span key={e.type.name} className={"type " + e.type.name}>
