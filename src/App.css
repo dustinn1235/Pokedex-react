@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+/* Fonts */
+/* ArcadeClassic */
+@font-face {
+  font-family: "Arcade";
+  src: url("./font/ARCADECLASSIC.TTF") format("truetype");
+}
+/*VCR_OSD_MONO_1.001 */
+@font-face {
+  font-family: "VCR";
+  src: url("./font/VCR_OSD_MONO_1.001.ttf") format("truetype");
+}
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Arcade", sans-serif;
   margin: 0;
   padding: 0;
 }
