@@ -3,6 +3,7 @@ import PokeInfo from "./components/PokeInfo";
 import Header from "./components/Header";
 import "./App.css";
 import { useState, useEffect } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,7 @@ function App() {
   const [nextURL, setNextURL] = useState("");
   const [prevURL, setPrevURL] = useState("");
   const [curPoke, setCurPoke] = useState({});
+  const isMobile = window.innerWidth <= 900;
 
   useEffect(() => {
     fetchData();
@@ -48,29 +50,33 @@ function App() {
   };
 
   return (
-    <>
+    <div className="main-container">
       <Header></Header>
       {loading ? (
         <div className="pokeball">
           <div className="inner-ball"></div>
         </div>
       ) : (
-        <div className="container">
-          <div>
-            <PokeList
-              pokeList={pokeList}
-              onShow={showInfo}
-              loading={loading}
-            ></PokeList>
-            <div className="btns-container">
-              {prevURL && <button onClick={onPrev}>PREV</button>}
-              {nextURL && <button onClick={onNext}>NEXT</button>}
+        <div className="wrapper">
+          <div className="container">
+            <div>
+              <PokeList
+                pokeList={pokeList}
+                onShow={showInfo}
+                loading={loading}
+                isMobile={isMobile}
+              ></PokeList>
+              <div className="btns-container">
+                {prevURL && <button onClick={onPrev}>PREV</button>}
+                {nextURL && <button onClick={onNext}>NEXT</button>}
+              </div>
             </div>
+            <PokeInfo pokemon={curPoke}></PokeInfo>
           </div>
-          <PokeInfo pokemon={curPoke}></PokeInfo>
+          <Footer></Footer>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

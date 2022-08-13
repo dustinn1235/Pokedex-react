@@ -3,9 +3,9 @@ import HeaderImg from "../img/Pokédex_logo.png";
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <img src={HeaderImg}></img>
-    </div>
+    </header>
   );
 };
 
