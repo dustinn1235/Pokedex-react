@@ -1,3 +1,6 @@
+# Executable link:
+https://dustinn1235.github.io/Pokedex-react/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
